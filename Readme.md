@@ -3,7 +3,7 @@
 有一大半的時間都在調整gradle, sdk, api之類的問題，
 根本不是在練習程式，是在練習調整系統qwq
 
-##統一發票對獎機 Android Studio 版本
+## 統一發票對獎機 Android Studio 版本
 * GRADLE JDK: JAVA 11 
   > 我原本想要用1.8，但是不曉得為何程式要求我一定要用11
 * SDK: Android 11.0 (R)
