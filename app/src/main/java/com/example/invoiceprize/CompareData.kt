@@ -3,7 +3,7 @@ package com.example.invoiceprize
 import com.example.invoiceprize.prize.*
 
 class CompareData {
-    fun compare(index: Int, prize: Int): Array<String?> {
+    fun compare(index: Int, prize: Int): List<String> {
         val data: Array<Prize> = arrayOf<Prize>(
             SpecialPrize(),
             GrandPrize(),
@@ -65,7 +65,7 @@ class CompareData {
                 System.out.println(data[number].name)
             }
         }
-        return arrayOf(
+        return listOf<String>(
             number.toString(), enter.string,
             data[number].name, Integer.toString(data[number].bonus)
         )

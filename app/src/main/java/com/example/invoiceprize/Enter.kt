@@ -6,7 +6,7 @@ import java.util.Scanner
 
 
 class Enter {
-    var string: String? = null
+    var string: String = "0"
     var integer = 0
 
     fun vertified(number: Int): Boolean {

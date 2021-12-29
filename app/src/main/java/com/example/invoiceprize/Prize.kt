@@ -7,9 +7,9 @@ import java.util.ArrayList
 
 open class Prize {
     var data: MutableList<String> = ArrayList()
-    var name: String? = null
+    var name: String = "Test"
     var bonus = 0
-    var list: Array<String> = emptyArray()
+    var list: List<String> = ArrayList()
     var total = 0
     var enter: MutableList<String> = ArrayList()
     var winName: MutableList<String> = ArrayList()
