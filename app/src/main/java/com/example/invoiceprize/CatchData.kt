@@ -77,7 +77,7 @@ class CatchData {
         } while (counter < len)
     }
 
-    operator fun get(year: String, month: String): List<String>? {
+    operator fun get(year: String, month: String): MutableList<String> {
         catchdata(year, month)
         return prize
     }

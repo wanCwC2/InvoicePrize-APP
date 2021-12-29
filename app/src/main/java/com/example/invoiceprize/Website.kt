@@ -1,17 +1,16 @@
 package com.example.invoiceprize
 
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import java.util.Scanner
-
-
-
 
 class Website {
     var year: String? = null
     var month: String? = null
 
-    fun Website() {
-        super()
-    }
+//    fun Website() {
+//        super()
+//    }
 
     fun verified(): Boolean {
         print("輸入你想發票兌獎號碼的年月份: ")

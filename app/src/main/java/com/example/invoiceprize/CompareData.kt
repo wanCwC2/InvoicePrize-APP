@@ -1,7 +1,9 @@
 package com.example.invoiceprize
 
+import com.example.invoiceprize.prize.*
+
 class CompareData {
-    fun compare(index: Int, prize: Int): Array<String>? {
+    fun compare(index: Int, prize: Int): Array<String?> {
         val data: Array<Prize> = arrayOf<Prize>(
             SpecialPrize(),
             GrandPrize(),
@@ -32,7 +34,7 @@ class CompareData {
                 System.out.println(data[number].name)
             }
         } else if (index == 1) {
-            if (enter.integer === prize) {
+            if (enter.integer == prize) {
                 number = 1
                 System.out.println(
                     "恭喜中" + data[number].name.toString() + " 得到獎金為" + data[number].bonus
@@ -64,7 +66,7 @@ class CompareData {
             }
         }
         return arrayOf(
-            Integer.toString(number), enter.string,
+            number.toString(), enter.string,
             data[number].name, Integer.toString(data[number].bonus)
         )
     }
