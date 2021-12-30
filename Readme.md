@@ -1,7 +1,8 @@
 # wanCwC2超讚
 要不是因為行動裝置的作業要用這東西，我還真的不想接觸android studio，
 有一大半的時間都在調整gradle, sdk, api之類的問題，
-根本不是在練習程式，是在練習調整系統qwq
+根本不是在練習程式，是在練習調整系統qwq <br>
+如果看到commit上是寫 "hi OwO"，那只是我commit的時候沒有選到而已。
 
 ## 統一發票對獎機 Android Studio 版本
 * GRADLE JDK: JAVA 11 
