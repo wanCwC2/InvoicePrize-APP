@@ -13,7 +13,6 @@ import java.util.ArrayList
 class CatchData {
     private lateinit var db: SQLiteDatabase
 
-
     var name = arrayOf(
         "specialPrize", "grandPrize", "firstPrizeA",
         "firstPrizeB", "firstPrizeC", "addSixPrize"
@@ -45,8 +44,6 @@ class CatchData {
     }
 
     fun parser(data: String) {
-
-        db = SQL_helpler(this).writableDatabase
         var temp: String? = null
         var start = 0
         var end = 0
