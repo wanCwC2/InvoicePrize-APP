@@ -19,7 +19,7 @@ class RewardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_reward)
 
         //綁定元件
-        val btn_back = findViewById<Button>(R.id.btn_back)
+        val btn_back = findViewById<Button>(R.id.btn_reward)
         val ed_number = findViewById<EditText>(R.id.ed_number)
 
         //回上一頁

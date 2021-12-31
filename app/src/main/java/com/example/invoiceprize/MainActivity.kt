@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         db = SQL_helpler(this).writableDatabase
 
         //綁定元件
-        val btn_reward = findViewById<Button>(R.id.btn_back)
+        val btn_reward = findViewById<Button>(R.id.btn_reward)
+        val btn_win = findViewById<Button>(R.id.btn_win)
 
         //把對獎年月都儲存在資料庫中
         if (db.execSQL("SELECT * FROM prize") == null){
@@ -41,7 +42,10 @@ class MainActivity : AppCompatActivity() {
             catchdata(timeNowYear, timeNowMonth)
         }
 
-
+        //前往中獎專區
+        btn_reward.setOnClickListener{
+            startActivity(Intent(this,RewardActivity::class.java))
+        }
 
         //前往對獎專區
         btn_reward.setOnClickListener{

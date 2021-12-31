@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InvoicePrize">
         <activity
+            android:name=".WinActivity"
+            android:exported="true" />
+        <activity
             android:name=".RewardActivity"
             android:exported="true" />
         <activity
