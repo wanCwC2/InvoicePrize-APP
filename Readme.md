@@ -12,7 +12,7 @@
   > 因為想要做機器學習，至少要API29或30以上
 * AVD: Pixel 5 API 30
 
-##Debug
+## Debug
 `Permission is only granted to system app` <br>
 主要發生在`AndroidManifest.xml`檔案中`<uses-permission android:name="android.permission.WRITE_SETTINGS" />`
 這行可能會顯示錯誤，解決方法如下：
