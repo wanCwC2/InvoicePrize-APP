@@ -15,7 +15,7 @@ class SQL_helpler(
             private const val ver = 1
         }
     override fun onCreate(db: SQLiteDatabase){
-        db.execSQL("CREATE TABLE prize(prize_id text PRIMARY KEY, date text not null)")
+        db.execSQL("CREATE TABLE prize(prize_id text PRIMARY KEY, date text not null, name text not null)")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int){
         db.execSQL("DROP TABLE IF EXISTS addressBook")

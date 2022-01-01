@@ -7,6 +7,7 @@ import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -26,25 +27,31 @@ class MainActivity : AppCompatActivity() {
         //綁定元件
         val btn_reward = findViewById<Button>(R.id.btn_reward)
         val btn_win = findViewById<Button>(R.id.btn_win)
+        val tv_specialPrize = findViewById<TextView>(R.id.tv_test) //測試用
+        val btn_db = findViewById<Button>(R.id.btn_db)
 
         //把對獎年月都儲存在資料庫中
-        if (db.execSQL("SELECT * FROM prize") == null){
+//        if (db.execSQL("SELECT * FROM prize") == null) {
 //            val cd = CatchData()
-            val cal: Calendar = Calendar.getInstance()
-            cal.add(Calendar.MONTH, -2)
-            cal.add(Calendar.DATE, -25)
-            var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-            if (timeNowMonth.toInt()/2 == 0){
-                cal.add(Calendar.MONTH, -1)
-            }
-            var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
-            timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
-            catchdata(timeNowYear, timeNowMonth)
+        val cal: Calendar = Calendar.getInstance()
+        cal.add(Calendar.MONTH, -2)
+        cal.add(Calendar.DATE, -25)
+        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
+        if (timeNowMonth.toInt() / 2 == 0) {
+            cal.add(Calendar.MONTH, -1)
         }
+        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
+        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
+        Thread{
+            catchdata(timeNowYear, timeNowMonth)
+        }.start()
+        tv_specialPrize.text = db.execSQL("SELECT prize_id " +
+                "FROM prize " +
+                "WHERE name like 'specialPrize'").toString()
 
         //前往中獎專區
-        btn_reward.setOnClickListener{
-            startActivity(Intent(this,RewardActivity::class.java))
+        btn_win.setOnClickListener{
+            startActivity(Intent(this,WinActivity::class.java))
         }
 
         //前往對獎專區
@@ -95,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 //                prize.add(temp)
                 db.execSQL(
                     "INSERT INTO addressBooks(id, name,phone,address)" +
-                            "VALUES('${temp}','${date}'"
+                            "VALUES('${temp}','${date}','${name[counter]}')"
                 )
 
             } else if (counter == len - 1) {
@@ -105,7 +112,7 @@ class MainActivity : AppCompatActivity() {
 //                prize.add(temp)
                 db.execSQL(
                     "INSERT INTO addressBooks(id, name,phone,address)" +
-                            "VALUES('${temp}','${date}'"
+                            "VALUES('${temp}','${date}','${name[counter]}')"
                 )
                 counter++
                 start = data.indexOf("<div class=\"col-12 mb-3\">", end + 1)
@@ -115,7 +122,7 @@ class MainActivity : AppCompatActivity() {
 //                    prize.add(temp)
                     db.execSQL(
                         "INSERT INTO addressBooks(id, name,phone,address)" +
-                                "VALUES('${temp}','${date}'"
+                                "VALUES('${temp}','${date}','${name[counter]}')"
                     )
                 }
             } else {
@@ -128,7 +135,7 @@ class MainActivity : AppCompatActivity() {
 //                prize.add(temp)
                 db.execSQL(
                     "INSERT INTO addressBooks(id, name,phone,address)" +
-                            "VALUES('${temp}','${date}'"
+                            "VALUES('${temp}','${date}','${name[counter]}')"
                 )
             }
             counter++
