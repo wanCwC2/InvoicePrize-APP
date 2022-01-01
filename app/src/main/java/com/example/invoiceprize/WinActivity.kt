@@ -2,6 +2,8 @@ package com.example.invoiceprize
 
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
+import android.icu.text.SimpleDateFormat
+import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -24,27 +26,54 @@ class WinActivity : AppCompatActivity() {
         val tv_firstPrizeB = findViewById<TextView>(R.id.tv_firstPrizeB)
         val tv_firstPrizeC = findViewById<TextView>(R.id.tv_firstPrizeC)
         val tv_addSixPrize = findViewById<TextView>(R.id.tv_addSixPrize)
+        var name = arrayOf(
+            "specialPrize", "grandPrize", "firstPrizeA",
+            "firstPrizeB", "firstPrizeC", "addSixPrize"
+        )
+
+        //中獎號碼日期（目前只能前一次的）
+        val cal: Calendar = Calendar.getInstance()
+        cal.add(Calendar.MONTH, -2)
+        cal.add(Calendar.DATE, -25)
+        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
+        if (timeNowMonth.toInt() / 2 == 0) {
+            cal.add(Calendar.MONTH, -1)
+        }
+        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
+        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
+        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
 
         //號碼顯示
-        tv_specialPrize.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==specialPrize").toString()
-        tv_grandPrize.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==grandPrize").toString()
-        tv_firstPrizeA.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==firstPrizeA").toString()
-        tv_firstPrizeB.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==firstPrizeB").toString()
-        tv_firstPrizeC.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==firstPrizeC").toString()
-        tv_addSixPrize.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name==addSixPrize").toString()
-
+        lateinit var query: String
+//        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
+        query = "SELECT prize_id FROM prize WHERE date == '11009'"
+        val c = db.rawQuery(query, null)
+        c.moveToFirst()
+        if (c != null) {
+            tv_specialPrize.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        if (c != null) {
+            tv_grandPrize.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        if (c != null) {
+            tv_firstPrizeA.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        if (c != null) {
+            tv_firstPrizeB.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        if (c != null) {
+            tv_firstPrizeC.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        if (c != null) {
+            tv_addSixPrize.text = "${c.getString(0)}"
+            c.moveToNext()
+        }
+        c.close()
 
         //回上一頁
         btn_back.setOnClickListener{

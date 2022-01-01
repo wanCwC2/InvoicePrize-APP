@@ -6,6 +6,9 @@ import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
+import android.os.StrictMode.VmPolicy
 import android.widget.Button
 import android.widget.TextView
 import java.io.BufferedReader
@@ -14,6 +17,10 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
+import android.database.Cursor
+
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
@@ -27,12 +34,25 @@ class MainActivity : AppCompatActivity() {
         //綁定元件
         val btn_reward = findViewById<Button>(R.id.btn_reward)
         val btn_win = findViewById<Button>(R.id.btn_win)
-        val tv_specialPrize = findViewById<TextView>(R.id.tv_test) //測試用
-        val btn_db = findViewById<Button>(R.id.btn_db)
+
+        //錯誤問題：android.os.NetworkOnMainThreadException之解決方式
+        StrictMode.setThreadPolicy(
+            ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()
+                .penaltyLog()
+                .build()
+        )
+        StrictMode.setVmPolicy(
+            VmPolicy.Builder()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build()
+        )
 
         //把對獎年月都儲存在資料庫中
-//        if (db.execSQL("SELECT * FROM prize") == null) {
-//            val cd = CatchData()
         val cal: Calendar = Calendar.getInstance()
         cal.add(Calendar.MONTH, -2)
         cal.add(Calendar.DATE, -25)
@@ -42,12 +62,14 @@ class MainActivity : AppCompatActivity() {
         }
         var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
         timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
-        Thread{
-            catchdata(timeNowYear, timeNowMonth)
-        }.start()
-        tv_specialPrize.text = db.execSQL("SELECT prize_id " +
-                "FROM prize " +
-                "WHERE name like 'specialPrize'").toString()
+        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
+        lateinit var query: String
+        query = "SELECT * FROM prize WHERE date == '${time}'"
+        val c = db.rawQuery(query, null)
+        if (c == null) {
+                catchdata(timeNowYear, timeNowMonth)
+        }
+        c.close()
 
         //前往中獎專區
         btn_win.setOnClickListener{
@@ -76,9 +98,7 @@ class MainActivity : AppCompatActivity() {
             }
             urlData = data.toString()
             parser(urlData!!, year+month)
-        } catch (e: MalformedURLException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
@@ -101,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                 temp = data.substring(end - 23, end - 15)
 //                prize.add(temp)
                 db.execSQL(
-                    "INSERT INTO addressBooks(id, name,phone,address)" +
+                    "INSERT INTO prize(prize_id, date, name)" +
                             "VALUES('${temp}','${date}','${name[counter]}')"
                 )
 
@@ -111,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                 temp = data.substring(end - 18, end - 15)
 //                prize.add(temp)
                 db.execSQL(
-                    "INSERT INTO addressBooks(id, name,phone,address)" +
+                    "INSERT INTO prize(prize_id, date, name)" +
                             "VALUES('${temp}','${date}','${name[counter]}')"
                 )
                 counter++
@@ -121,7 +141,7 @@ class MainActivity : AppCompatActivity() {
                     temp = data.substring(end - 23, end - 15)
 //                    prize.add(temp)
                     db.execSQL(
-                        "INSERT INTO addressBooks(id, name,phone,address)" +
+                        "INSERT INTO prize(prize_id, date, name)" +
                                 "VALUES('${temp}','${date}','${name[counter]}')"
                     )
                 }
@@ -134,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                 temp = data.substring(end - 23, end - 15)
 //                prize.add(temp)
                 db.execSQL(
-                    "INSERT INTO addressBooks(id, name,phone,address)" +
+                    "INSERT INTO prize(prize_id, date, name)" +
                             "VALUES('${temp}','${date}','${name[counter]}')"
                 )
             }
