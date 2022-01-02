@@ -14,7 +14,7 @@
         android:layout_marginTop="6dp"
         android:backgroundTint="#E66EAFA0"
         android:gravity="center_vertical"
-        android:text="<"
+        android:text="回"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:textSize="24sp" />
