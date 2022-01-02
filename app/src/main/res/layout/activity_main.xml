@@ -8,21 +8,36 @@
 
     <TextView
         android:id="@+id/tv_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="80dp"
-        android:text="首頁"
+        android:layout_width="411dp"
+        android:layout_height="164dp"
+        android:background="#AAAAAA"
+        android:gravity="center|center_horizontal"
+        android:text="發票大師"
+        android:textColor="#D2000000"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_reward"
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="110dp"
+        android:text="Master Of Invoice"
+        android:textColor="#444444"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_home"
+        app:layout_constraintTop_toTopOf="@+id/tv_home" />
+
+    <Button
+        android:id="@+id/btn_reward"
+        android:layout_width="185dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#E66EAFA0"
         android:text="對獎專區"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_win"
@@ -30,11 +45,12 @@
 
     <Button
         android:id="@+id/btn_win"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="50dp"
-        android:text="中獎專區"
+        android:layout_width="185dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#E66EAFA0"
+        android:text="中獎號碼"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_home"
         tools:textSize="20sp" />
@@ -44,17 +60,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="404dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_db"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:text="執行資料庫"
+        android:layout_width="185dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="112dp"
+        android:backgroundTint="#E66EAFA0"
+        android:text="發票存摺"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_test" />
 
