@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         //綁定元件
         val btn_reward = findViewById<Button>(R.id.btn_reward)
         val btn_win = findViewById<Button>(R.id.btn_win)
+        val btn_passbook = findViewById<Button>(R.id.btn_passbook)
 
         //錯誤問題：android.os.NetworkOnMainThreadException之解決方式
         StrictMode.setThreadPolicy(
@@ -78,7 +79,12 @@ class MainActivity : AppCompatActivity() {
 
         //前往對獎專區
         btn_reward.setOnClickListener{
-            startActivity(Intent(this,RewardActivity::class.java))
+            startActivity(Intent(this,CheckNumbersActivity::class.java))
+        }
+
+        //前往發票存摺
+        btn_passbook.setOnClickListener{
+            startActivity(Intent(this,PassbookActivity::class.java))
         }
     }
 

@@ -22,7 +22,7 @@
             android:name=".Win2Activity"
             android:exported="false" />
         <activity
-            android:name=".fragment_number1"
+            android:name=".CheckNumbersActivity"
             android:exported="false" />
         <activity
             android:name=".WinActivity"
