@@ -19,9 +19,6 @@ import java.net.MalformedURLException
 import java.net.URL
 import android.database.Cursor
 
-
-
-
 class MainActivity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
 
@@ -35,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val btn_reward = findViewById<Button>(R.id.btn_reward)
         val btn_win = findViewById<Button>(R.id.btn_win)
         val btn_passbook = findViewById<Button>(R.id.btn_passbook)
+        val tv_test = findViewById<TextView>(R.id.tv_test)
 
         //錯誤問題：android.os.NetworkOnMainThreadException之解決方式
         StrictMode.setThreadPolicy(
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             VmPolicy.Builder()
                 .detectLeakedClosableObjects()
                 .penaltyLog()
-                .penaltyDeath()
+//                .penaltyDeath()
                 .build()
         )
 
@@ -65,10 +63,10 @@ class MainActivity : AppCompatActivity() {
         timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
         var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
         lateinit var query: String
-        query = "SELECT * FROM prize WHERE date == '${time}'"
+        query = "SELECT * FROM prize WHERE date == '11009'"
         val c = db.rawQuery(query, null)
         if (c == null) {
-                catchdata(timeNowYear, timeNowMonth)
+            catchdata("11009")
         }
         c.close()
 
@@ -88,9 +86,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun catchdata(year: String, month: String) {
+    fun catchdata(date: String) {
         var urlData: String? = null
-        val site = "https://www.etax.nat.gov.tw/etw-main/ETW183W2_$year$month/"
+        val site = "https://www.etax.nat.gov.tw/etw-main/ETW183W2_${date}/"
         try {
             val url = URL(site)
             val conn = url.openConnection() as HttpURLConnection
@@ -103,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 line = bis.readLine()
             }
             urlData = data.toString()
-            parser(urlData!!, year+month)
+            parser(urlData!!, "11009")
         } catch (e: Exception) {
             e.printStackTrace()
         }

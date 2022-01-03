@@ -31,9 +31,6 @@
             android:name=".WinActivity"
             android:exported="true" />
         <activity
-            android:name=".RewardActivity"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

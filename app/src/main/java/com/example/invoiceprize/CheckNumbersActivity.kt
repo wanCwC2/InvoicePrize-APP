@@ -13,12 +13,14 @@ import android.widget.Toast
 
 class CheckNumbersActivity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
+    private lateinit var rdb: SQLiteDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.check_numbers)
 
         db = SQL_helpler(this).writableDatabase
+        rdb = SQL_helpler2(this).writableDatabase
 
         //綁定元件
         val tv_YesOrNo=findViewById<TextView>(R.id.tv_YesOrNo)
@@ -28,15 +30,28 @@ class CheckNumbersActivity : AppCompatActivity() {
         val ed_number=findViewById<EditText>(R.id.ed_number)
         val btn_return=findViewById<Button>(R.id.btn_return)
         val btn_scan_1 = findViewById<Button>(R.id.btn_scan_1)
-//        val test1=findViewById<TextView>(R.id.test1)
+        val test1=findViewById<TextView>(R.id.test1)
 //        val test2=findViewById<TextView>(R.id.test2)
+
+        //中獎顯示底下
+        lateinit var query2: String
+        query2 = "SELECT * FROM passbook WHERE date == '11009'"
+        val c2 = rdb.rawQuery(query2, null)
+        if (c2 != null && c2.moveToFirst()){
+            tv_number.text = c2.getString(0)
+            tv_award.text = c2.getString(3)
+            tv_bonus.text = c2.getString(2)
+        }
+        c2.close()
 
         //中獎號碼輸出
         lateinit var query: String
 //        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
         query = "SELECT prize_id FROM prize WHERE date == '11009'"
         val c = db.rawQuery(query, null)
-        c.moveToFirst()
+        if (c != null) {
+            c.moveToFirst()
+        }
 
         //監聽輸入文字
         ed_number.addTextChangedListener(object : TextWatcher {
@@ -50,18 +65,16 @@ class CheckNumbersActivity : AppCompatActivity() {
                 s: CharSequence, start: Int, before: Int,
                 count: Int
             ) {
+                var bool_win = 1
                 if (ed_number.length() == 3) {
                     for (i in 0 until 6){
-//                        test1.text = ed_number.text
-//                        test2.text = (c.getString(0).toInt()%1000).toString()
-                        if (ed_number.text.toString().toInt() == c.getString(0).toInt()%1000){
+                        if (c != null && ed_number.text.toString().toInt() == c.getString(0).toInt()%1000){
                             showToast("${ed_number.text}有中獎，快輸入完整發票號碼吧！")
                             ed_number.text.clear()
-                            //applicationContext
                             val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
                             startActivity(intent)
-                            break
                         }
+                        c.moveToNext()
                     }
                     showToast("${ed_number.text}未中獎")
                     ed_number.text.clear()

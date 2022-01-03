@@ -17,6 +17,8 @@
         <entry key="app/src/main/res/layout/activity_win2.xml" value="0.1259259259259259" />
         <entry key="app/src/main/res/layout/check_numbers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/check_numbers2.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/qrcode.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/scan_number.xml" value="0.1" />
       </map>
     </option>
   </component>

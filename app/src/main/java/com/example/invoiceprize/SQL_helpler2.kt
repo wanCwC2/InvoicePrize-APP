@@ -18,7 +18,7 @@ class SQL_helpler2(
         db.execSQL("CREATE TABLE passbook(invoice_id PRIMARY KEY, date not null, money not null, award not null)")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int){
-        db.execSQL("DROP TABLE IF EXISTS addressBook")
+        db.execSQL("DROP TABLE IF EXISTS passbook")
         onCreate(db)
     }
 

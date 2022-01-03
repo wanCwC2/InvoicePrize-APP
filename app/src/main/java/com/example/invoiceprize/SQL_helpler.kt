@@ -18,7 +18,7 @@ class SQL_helpler(
         db.execSQL("CREATE TABLE prize(prize_id text PRIMARY KEY, date text not null, name text not null)")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int){
-        db.execSQL("DROP TABLE IF EXISTS addressBook")
+        db.execSQL("DROP TABLE IF EXISTS prize")
         onCreate(db)
     }
 

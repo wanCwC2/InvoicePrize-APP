@@ -14,6 +14,19 @@ class CheckNumbers2Activity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
     private lateinit var rdb: SQLiteDatabase
     var bool = 0
+    val data: Array<Prize> = arrayOf<Prize>(
+        SpecialPrize(),
+        GrandPrize(),
+        FirstPrize(),
+        TwoPrize(),
+        ThreePrize(),
+        FourPrize(),
+        FivePrize(),
+        SixPrize(),
+        AddsixPrize(),
+        NotPrize()
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.check_numbers2)
@@ -23,19 +36,6 @@ class CheckNumbers2Activity : AppCompatActivity() {
 
         //綁定元件
         val ed_invoiceNumber = findViewById<EditText>(R.id.ed_invoiceNumber)
-
-        val data: Array<Prize> = arrayOf<Prize>(
-            SpecialPrize(),
-            GrandPrize(),
-            FirstPrize(),
-            TwoPrize(),
-            ThreePrize(),
-            FourPrize(),
-            FivePrize(),
-            SixPrize(),
-            AddsixPrize(),
-            NotPrize()
-        )
 
         //中獎號碼輸出
         lateinit var query: String
@@ -59,7 +59,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 if (ed_invoiceNumber.length() == 8) {
                     for (i in 0 until 6){
                         compare(i, ed_invoiceNumber.text.toString().toInt(), c.getString(0).toInt())
-                        c.moveToFirst()
+                        c.moveToNext()
                     }
                     if (bool == 0) {
                         rdb.execSQL(
@@ -79,20 +79,10 @@ class CheckNumbers2Activity : AppCompatActivity() {
         })
     }
 
+    //比對中獎
     fun compare (index: Int, enter: Int, prize: Int){
         rdb = SQL_helpler2(this).writableDatabase
-        val data: Array<Prize> = arrayOf<Prize>(
-            SpecialPrize(),
-            GrandPrize(),
-            FirstPrize(),
-            TwoPrize(),
-            ThreePrize(),
-            FourPrize(),
-            FivePrize(),
-            SixPrize(),
-            AddsixPrize(),
-            NotPrize()
-        )
+        val ed_invoiceNumber = findViewById<EditText>(R.id.ed_invoiceNumber)
 
         if (index == 0) {
             if (enter == prize) {
@@ -100,6 +90,10 @@ class CheckNumbers2Activity : AppCompatActivity() {
                     "INSERT INTO passbook(invoice_id, date, money, award)" +
                             "VALUES('${enter}','11009','${data[0].bonus}','${data[0].name}')"
                 )
+                showToast("${enter}中${data[0].name}")
+                ed_invoiceNumber.text.clear()
+                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                startActivity(intent)
             }
         } else if (index == 1) {
             if (enter == prize) {
@@ -107,6 +101,10 @@ class CheckNumbers2Activity : AppCompatActivity() {
                     "INSERT INTO passbook(invoice_id, date, money, award)" +
                             "VALUES('${enter}','11009','${data[1].bonus}','${data[1].name}')"
                 )
+                showToast("${enter}中${data[0].name}")
+                ed_invoiceNumber.text.clear()
+                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                startActivity(intent)
             }
         } else if (index == 2 || index == 3 || index == 4) {
             var number = 2
@@ -117,6 +115,10 @@ class CheckNumbers2Activity : AppCompatActivity() {
                     "INSERT INTO passbook(invoice_id, date, money, award)" +
                             "VALUES('${enter}','11009','${data[number].bonus}','${data[number].name}')"
                 )
+                showToast("${enter}中${data[0].name}")
+                ed_invoiceNumber.text.clear()
+                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                startActivity(intent)
             }
         } else if (index == 5 || index == 6) {
             if (enter % 1000 === prize) {
@@ -124,10 +126,15 @@ class CheckNumbers2Activity : AppCompatActivity() {
                     "INSERT INTO passbook(invoice_id, date, money, award)" +
                             "VALUES('${enter}','11009','${data[8].bonus}','${data[8].name}')"
                 )
+                showToast("${enter}中${data[0].name}")
+                ed_invoiceNumber.text.clear()
+                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                startActivity(intent)
             }
         }
     }
 
+    //針對頭獎不同末幾號而判斷
     fun firstPrize(enter: Int, prize: Int, counter: Int, number: Int): Int {
         return if (counter < 1000) {
             9

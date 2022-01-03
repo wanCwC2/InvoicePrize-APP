@@ -50,32 +50,32 @@ class WinActivity : AppCompatActivity() {
         //號碼顯示
         lateinit var query: String
 //        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
-        query = "SELECT prize_id FROM prize WHERE date == '11009'"
+//        query = "SELECT prize_id FROM prize WHERE date == '11009'"
+        query = "SELECT * FROM prize"
         val c = db.rawQuery(query, null)
-        c.moveToFirst()
+        c?.moveToFirst()
         if (c != null) {
             tv_specialPrize.text = "${c.getString(0)}"
-            c.moveToNext()
         }
         if (c != null) {
+            c.moveToNext()
             tv_grandPrize.text = "${c.getString(0)}"
-            c.moveToNext()
         }
         if (c != null) {
+            c.moveToNext()
             tv_firstPrizeA.text = "${c.getString(0)}"
-            c.moveToNext()
         }
         if (c != null) {
+            c.moveToNext()
             tv_firstPrizeB.text = "${c.getString(0)}"
-            c.moveToNext()
         }
         if (c != null) {
+            c.moveToNext()
             tv_firstPrizeC.text = "${c.getString(0)}"
-            c.moveToNext()
         }
         if (c != null) {
-            tv_addSixPrize.text = "${c.getString(0)}"
             c.moveToNext()
+            tv_addSixPrize.text = "${c.getString(0)}"
         }
         c.close()
 
