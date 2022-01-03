@@ -15,7 +15,7 @@ class SQL_helpler2(
             private const val ver = 1
         }
     override fun onCreate(db: SQLiteDatabase){
-        db.execSQL("CREATE TABLE passbook(invoice_id PRIMARY KEY, money not null, kind not null, award not null)")
+        db.execSQL("CREATE TABLE passbook(invoice_id PRIMARY KEY, date not null, money not null, award not null)")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int){
         db.execSQL("DROP TABLE IF EXISTS addressBook")
