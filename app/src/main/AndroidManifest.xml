@@ -25,6 +25,9 @@
             android:name=".CheckNumbersActivity"
             android:exported="false" />
         <activity
+            android:name=".CheckNumbers2Activity"
+            android:exported="false" />
+        <activity
             android:name=".WinActivity"
             android:exported="true" />
         <activity

@@ -50,21 +50,22 @@ class CheckNumbersActivity : AppCompatActivity() {
                 s: CharSequence, start: Int, before: Int,
                 count: Int
             ) {
-                for (i in 0 until 6){
-                    if (ed_number.length() == 3) {
-
+                if (ed_number.length() == 3) {
+                    for (i in 0 until 6){
 //                        test1.text = ed_number.text
 //                        test2.text = (c.getString(0).toInt()%1000).toString()
-
                         if (ed_number.text.toString().toInt() == c.getString(0).toInt()%1000){
                             showToast("${ed_number.text}有中獎，快輸入完整發票號碼吧！")
-//                            startActivity(Intent(this, CheckNumbers2Activity::class.java))
-                        } else{
-                            showToast("${ed_number.text}未中獎")
+                            ed_number.text.clear()
+                            //applicationContext
+                            val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                            startActivity(intent)
+                            break
                         }
                     }
+                    showToast("${ed_number.text}未中獎")
+                    ed_number.text.clear()
                 }
-                ed_number.text.clear()
             }
             override fun afterTextChanged(s: Editable) {
 
