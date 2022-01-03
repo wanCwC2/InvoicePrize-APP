@@ -26,6 +26,7 @@ class WinActivity : AppCompatActivity() {
         val tv_firstPrizeB = findViewById<TextView>(R.id.tv_firstPrizeB)
         val tv_firstPrizeC = findViewById<TextView>(R.id.tv_firstPrizeC)
         val tv_addSixPrize = findViewById<TextView>(R.id.tv_addSixPrize)
+        val btn_month2 = findViewById<Button>(R.id.btn_month2)
         var name = arrayOf(
             "specialPrize", "grandPrize", "firstPrizeA",
             "firstPrizeB", "firstPrizeC", "addSixPrize"
@@ -36,12 +37,15 @@ class WinActivity : AppCompatActivity() {
         cal.add(Calendar.MONTH, -2)
         cal.add(Calendar.DATE, -25)
         var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-        if (timeNowMonth.toInt() / 2 == 0) {
+        if (timeNowMonth.toInt()%2 == 0) {
             cal.add(Calendar.MONTH, -1)
         }
         var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
         timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
         var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
+
+        //顯示按鈕名稱
+        btn_month2.text = "${time}"
 
         //號碼顯示
         lateinit var query: String

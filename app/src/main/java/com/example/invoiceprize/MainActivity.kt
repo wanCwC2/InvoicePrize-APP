@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         cal.add(Calendar.MONTH, -2)
         cal.add(Calendar.DATE, -25)
         var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-        if (timeNowMonth.toInt() / 2 == 0) {
+        if (timeNowMonth.toInt()%2 == 0) {
             cal.add(Calendar.MONTH, -1)
         }
         var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())

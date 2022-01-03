@@ -8,6 +8,14 @@
     tools:context=".CheckNumbersActivity">
 
     <TextView
+        android:id="@+id/test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/test1"
+        app:layout_constraintTop_toTopOf="@+id/test1" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="412dp"
         android:layout_height="142dp"
@@ -136,5 +144,15 @@
         android:text="return"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
