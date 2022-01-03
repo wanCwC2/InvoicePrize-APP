@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val btn_reward = findViewById<Button>(R.id.btn_reward)
         val btn_win = findViewById<Button>(R.id.btn_win)
         val btn_passbook = findViewById<Button>(R.id.btn_passbook)
+        val btn_sql = findViewById<Button>(R.id.btn_sql)
         val tv_test = findViewById<TextView>(R.id.tv_test)
 
         //錯誤問題：android.os.NetworkOnMainThreadException之解決方式
@@ -83,6 +84,11 @@ class MainActivity : AppCompatActivity() {
         //前往發票存摺
         btn_passbook.setOnClickListener{
             startActivity(Intent(this,PassbookActivity::class.java))
+        }
+
+        btn_sql.setOnClickListener{
+            db.execSQL("DELETE FROM prize")
+            catchdata("11009")
         }
     }
 
