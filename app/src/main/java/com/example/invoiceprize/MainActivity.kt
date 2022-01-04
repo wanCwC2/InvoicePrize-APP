@@ -55,26 +55,29 @@ class MainActivity : AppCompatActivity() {
         )
 
         //把對獎年月都儲存在資料庫中
-        val cal: Calendar = Calendar.getInstance()
-        cal.add(Calendar.MONTH, -2)
-        cal.add(Calendar.DATE, -25)
-        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-        if (timeNowMonth.toInt()%2 == 0) {
-            cal.add(Calendar.MONTH, -1)
-        }
-        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
-        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
-        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
+//        val cal: Calendar = Calendar.getInstance()
+//        cal.add(Calendar.MONTH, -2)
+//        cal.add(Calendar.DATE, -25)
+//        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
+//        if (timeNowMonth.toInt()%2 == 0) {
+//            cal.add(Calendar.MONTH, -1)
+//        }
+//        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
+//        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
+//        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
+        val time = Time()
+        time.run()
         lateinit var query: String
-        query = "SELECT * FROM prize WHERE date like '11009'"
+        query = "SELECT * FROM prize WHERE date like '${time.time}'"
         val c = db.rawQuery(query, null)
         try {
             c.moveToFirst()
             val s = c.getString(c.getColumnIndex("prize_id"))
         }catch (e: Exception){
-            catchdata("11009")
+            catchdata("${time.time}")
         }
         c.close()
+//        tv_test.text = time.time
 
         //前往中獎專區
         btn_win.setOnClickListener{
