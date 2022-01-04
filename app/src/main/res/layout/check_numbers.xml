@@ -133,8 +133,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#E66EAFA0"
-        android:text="return"
+        android:text="返回"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
