@@ -49,13 +49,12 @@ class WinActivity : AppCompatActivity() {
 
         //號碼顯示
         lateinit var query: String
-//        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
-//        query = "SELECT prize_id FROM prize WHERE date == '11009'"
         query = "SELECT * FROM prize"
         val c = db.rawQuery(query, null)
         c?.moveToFirst()
         if (c != null) {
-            tv_specialPrize.text = "${c.getString(0)}"
+            val s = c.getString(c.getColumnIndex("prize_id"))
+            tv_specialPrize.text = s
         }
         if (c != null) {
             c.moveToNext()

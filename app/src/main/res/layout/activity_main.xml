@@ -59,31 +59,31 @@
         android:id="@+id/tv_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="404dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="極度危險，小心使用"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sql"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sql" />
 
     <Button
         android:id="@+id/btn_passbook"
         android:layout_width="185dp"
         android:layout_height="75dp"
         android:layout_marginStart="112dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#E66EAFA0"
         android:text="發票存摺"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_test" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_reward" />
 
     <Button
         android:id="@+id/btn_sql"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="296dp"
-        android:layout_marginTop="372dp"
-        android:text="執行資料庫"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#E66EAFA0"
+        android:text="刪除所有資料"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_passbook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

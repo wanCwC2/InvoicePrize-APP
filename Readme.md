@@ -13,7 +13,12 @@
 * AVD: Pixel 5 API 30
 
 ## Debug
-`Permission is only granted to system app` <br>
+* `Permission is only granted to system app` <br>
 主要發生在`AndroidManifest.xml`檔案中`<uses-permission android:name="android.permission.WRITE_SETTINGS" />`
 這行可能會顯示錯誤，解決方法如下：
 > File -> Settings -> Editor -> Inspections -> Android -> Lint -> Correctness -> Using system app permission 這個不要打勾或調低安全級別
+* 關於刪除資料庫後 <br>
+如果有要看財政部公布的統一發票中獎號碼或使用對獎的功能，一定要重開app！！！<br>
+  一定要重開app！！！<br>
+  一定要重開app！！！<br>
+  很重要所有說三次

@@ -21,12 +21,14 @@ import android.database.Cursor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
+    private lateinit var rdb: SQLiteDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         db = SQL_helpler(this).writableDatabase
+        rdb = SQL_helpler2(this).writableDatabase
 
         //綁定元件
         val btn_reward = findViewById<Button>(R.id.btn_reward)
@@ -64,9 +66,12 @@ class MainActivity : AppCompatActivity() {
         timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
         var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
         lateinit var query: String
-        query = "SELECT * FROM prize WHERE date == '11009'"
+        query = "SELECT * FROM prize WHERE date like '11009'"
         val c = db.rawQuery(query, null)
-        if (c == null) {
+        try {
+            c.moveToFirst()
+            val s = c.getString(c.getColumnIndex("prize_id"))
+        }catch (e: Exception){
             catchdata("11009")
         }
         c.close()
@@ -88,7 +93,8 @@ class MainActivity : AppCompatActivity() {
 
         btn_sql.setOnClickListener{
             db.execSQL("DELETE FROM prize")
-            catchdata("11009")
+            rdb.execSQL("DELETE FROM passbook")
+//            catchdata("11009")
         }
     }
 

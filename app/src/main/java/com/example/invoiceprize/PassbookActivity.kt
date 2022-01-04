@@ -29,6 +29,7 @@ class PassbookActivity : AppCompatActivity() {
         adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,items)
         findViewById<ListView>(R.id.resultList).adapter = adapter
 
+
         //輸出發票中獎資訊
         lateinit var query: String
         query = "SELECT * FROM passbook WHERE date == '11009'"
@@ -47,11 +48,15 @@ class PassbookActivity : AppCompatActivity() {
             }
             adapter.notifyDataSetChanged() //更新列表資料
             c.close() //關閉 Cursor
+        } else {
+            items.add(
+                "尚未有資料"
+            )
+        }
 
-            //回上一頁
-            btn_back3.setOnClickListener {
-                startActivity(Intent(this, MainActivity::class.java))
-            }
+        //回上一頁
+        btn_back3.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }

@@ -68,7 +68,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                         )
                         showToast("${ed_invoiceNumber.text}未中獎")
                         ed_invoiceNumber.text.clear()
-                        val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                        val intent = Intent(applicationContext, CheckNumbersActivity::class.java)
                         startActivity(intent)
                     }
                 }
@@ -92,7 +92,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 )
                 showToast("${enter}中${data[0].name}")
                 ed_invoiceNumber.text.clear()
-                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                val intent = Intent(applicationContext, CheckNumbersActivity::class.java)
                 startActivity(intent)
             }
         } else if (index == 1) {
@@ -103,7 +103,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 )
                 showToast("${enter}中${data[0].name}")
                 ed_invoiceNumber.text.clear()
-                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                val intent = Intent(applicationContext, CheckNumbersActivity::class.java)
                 startActivity(intent)
             }
         } else if (index == 2 || index == 3 || index == 4) {
@@ -117,7 +117,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 )
                 showToast("${enter}中${data[0].name}")
                 ed_invoiceNumber.text.clear()
-                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                val intent = Intent(applicationContext, CheckNumbersActivity::class.java)
                 startActivity(intent)
             }
         } else if (index == 5 || index == 6) {
@@ -128,7 +128,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 )
                 showToast("${enter}中${data[0].name}")
                 ed_invoiceNumber.text.clear()
-                val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                val intent = Intent(applicationContext, CheckNumbersActivity::class.java)
                 startActivity(intent)
             }
         }

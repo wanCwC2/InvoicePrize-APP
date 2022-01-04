@@ -30,8 +30,6 @@ class CheckNumbersActivity : AppCompatActivity() {
         val ed_number=findViewById<EditText>(R.id.ed_number)
         val btn_return=findViewById<Button>(R.id.btn_return)
         val btn_scan_1 = findViewById<Button>(R.id.btn_scan_1)
-        val test1=findViewById<TextView>(R.id.test1)
-//        val test2=findViewById<TextView>(R.id.test2)
 
         //中獎顯示底下
         lateinit var query2: String
