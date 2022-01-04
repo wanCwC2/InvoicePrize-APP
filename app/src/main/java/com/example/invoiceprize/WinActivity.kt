@@ -33,19 +33,20 @@ class WinActivity : AppCompatActivity() {
         )
 
         //中獎號碼日期（目前只能前一次的）
-        val cal: Calendar = Calendar.getInstance()
-        cal.add(Calendar.MONTH, -2)
-        cal.add(Calendar.DATE, -25)
-        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-        if (timeNowMonth.toInt()%2 == 0) {
-            cal.add(Calendar.MONTH, -1)
-        }
-        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
-        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
-        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
-
+//        val cal: Calendar = Calendar.getInstance()
+//        cal.add(Calendar.MONTH, -2)
+//        cal.add(Calendar.DATE, -25)
+//        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
+//        if (timeNowMonth.toInt()%2 == 0) {
+//            cal.add(Calendar.MONTH, -1)
+//        }
+//        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
+//        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
+//        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
+        val time = Time()
+        time.run()
         //顯示按鈕名稱
-        btn_month2.text = "${time}"
+        btn_month2.text = "${time.timeNowYear}年${time.timeNowMonth}-${time.timeNowMonth1}月"
 
         //號碼顯示
         lateinit var query: String

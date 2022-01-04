@@ -7,6 +7,7 @@ class Time {
     var timeNowYear: String = "0"
     var timeNowMonth: String = "0"
     var time: String = "0"
+    var timeNowMonth1: String = "0"
     fun run(){
         val cal: Calendar = Calendar.getInstance()
         cal.add(Calendar.MONTH, -2)
@@ -19,5 +20,6 @@ class Time {
         timeNowYear = (timeNowYear.toInt()-1911).toString()
         timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
         time = timeNowYear+timeNowMonth
+        timeNowMonth1 = (timeNowMonth.toInt()+1).toString()
     }
 }
