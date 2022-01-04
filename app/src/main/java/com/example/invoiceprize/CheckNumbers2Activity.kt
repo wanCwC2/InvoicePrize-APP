@@ -38,9 +38,10 @@ class CheckNumbers2Activity : AppCompatActivity() {
         val ed_invoiceNumber = findViewById<EditText>(R.id.ed_invoiceNumber)
 
         //中獎號碼輸出
+        val time = Time()
+        time.run()
         lateinit var query: String
-//        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
-        query = "SELECT prize_id FROM prize WHERE date == '11009'"
+        query = "SELECT * FROM prize WHERE date like '${time.timeNow}'"
         val c = db.rawQuery(query, null)
         c.moveToFirst()
 

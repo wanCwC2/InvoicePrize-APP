@@ -35,7 +35,7 @@ class CheckNumbersActivity : AppCompatActivity() {
         lateinit var query2: String
         query2 = "SELECT * FROM passbook WHERE date == '11009'"
         val c2 = rdb.rawQuery(query2, null)
-        if (c2 != null && c2.moveToFirst()){
+        if (c2 != null && c2.moveToLast()){
             tv_number.text = c2.getString(0)
             tv_award.text = c2.getString(3)
             tv_bonus.text = c2.getString(2)
@@ -43,9 +43,10 @@ class CheckNumbersActivity : AppCompatActivity() {
         c2.close()
 
         //中獎號碼輸出
+        val time = Time()
+        time.run()
         lateinit var query: String
-//        query = "SELECT prize_id FROM prize WHERE date == '${time}'"
-        query = "SELECT prize_id FROM prize WHERE date == '11009'"
+        query = "SELECT prize_id FROM prize WHERE date == '${time.timeNow}'"
         val c = db.rawQuery(query, null)
         if (c != null) {
             c.moveToFirst()
@@ -63,7 +64,6 @@ class CheckNumbersActivity : AppCompatActivity() {
                 s: CharSequence, start: Int, before: Int,
                 count: Int
             ) {
-                var bool_win = 1
                 if (ed_number.length() == 3) {
                     for (i in 0 until 6){
                         if (c != null && ed_number.text.toString().toInt() == c.getString(0).toInt()%1000){

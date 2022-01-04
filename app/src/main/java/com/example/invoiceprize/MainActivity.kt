@@ -2,8 +2,6 @@ package com.example.invoiceprize
 
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
-import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
@@ -12,12 +10,9 @@ import android.os.StrictMode.VmPolicy
 import android.widget.Button
 import android.widget.TextView
 import java.io.BufferedReader
-import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
-import java.net.MalformedURLException
 import java.net.URL
-import android.database.Cursor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var db: SQLiteDatabase
@@ -55,29 +50,19 @@ class MainActivity : AppCompatActivity() {
         )
 
         //把對獎年月都儲存在資料庫中
-//        val cal: Calendar = Calendar.getInstance()
-//        cal.add(Calendar.MONTH, -2)
-//        cal.add(Calendar.DATE, -25)
-//        var timeNowMonth: String = SimpleDateFormat("MM").format(cal.getTime())
-//        if (timeNowMonth.toInt()%2 == 0) {
-//            cal.add(Calendar.MONTH, -1)
-//        }
-//        var timeNowYear = SimpleDateFormat("yyyy").format(cal.getTime())
-//        timeNowMonth = SimpleDateFormat("MM").format(cal.getTime())
-//        var time = SimpleDateFormat("yyyyMM").format(cal.getTime())
         val time = Time()
         time.run()
         lateinit var query: String
-        query = "SELECT * FROM prize WHERE date like '${time.time}'"
+        query = "SELECT * FROM prize WHERE date like '${time.timeNow}'"
         val c = db.rawQuery(query, null)
         try {
             c.moveToFirst()
             val s = c.getString(c.getColumnIndex("prize_id"))
         }catch (e: Exception){
-            catchdata("${time.time}")
+            catchdata("${time.timeNow}")
+            catchdata("${time.timeBef}")
         }
         c.close()
-//        tv_test.text = time.time
 
         //前往中獎專區
         btn_win.setOnClickListener{
@@ -94,10 +79,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,PassbookActivity::class.java))
         }
 
+        //清空資料庫
         btn_sql.setOnClickListener{
             db.execSQL("DELETE FROM prize")
             rdb.execSQL("DELETE FROM passbook")
-//            catchdata("11009")
         }
     }
 
