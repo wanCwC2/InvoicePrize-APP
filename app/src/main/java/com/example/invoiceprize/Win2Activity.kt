@@ -24,8 +24,8 @@ class Win2Activity : AppCompatActivity() {
         val tv_firstPrizeB2= findViewById<TextView>(R.id.tv_firstPrizeB2)
         val tv_firstPrizeC2= findViewById<TextView>(R.id.tv_firstPrizeC2)
         val tv_addSixPrize2= findViewById<TextView>(R.id.tv_addSixPrize2)
-        val btn_month3= findViewById<Button>(R.id.btn_month1)
-        val btn_month4 = findViewById<Button>(R.id.btn_month2)
+        val btn_month3= findViewById<Button>(R.id.btn_month3)
+        val btn_month4 = findViewById<Button>(R.id.btn_month4)
         var name = arrayOf(
             "specialPrize2", "grandPrize2", "firstPrizeA2",
             "firstPrizeB2", "firstPrizeC2", "addSixPrize2"
