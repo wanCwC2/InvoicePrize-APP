@@ -33,7 +33,8 @@ class CheckNumbersActivity : AppCompatActivity() {
 
         //中獎顯示底下
         lateinit var query2: String
-        query2 = "SELECT * FROM passbook WHERE date == '11009'"
+//        query2 = "SELECT * FROM passbook WHERE date == '11009'"
+        query2 = "SELECT * FROM passbook"
         val c2 = rdb.rawQuery(query2, null)
         if (c2 != null && c2.moveToLast()){
             tv_number.text = c2.getString(0)
@@ -46,11 +47,9 @@ class CheckNumbersActivity : AppCompatActivity() {
         val time = Time()
         time.run()
         lateinit var query: String
-        query = "SELECT prize_id FROM prize WHERE date == '${time.timeNow}'"
+//        query = "SELECT prize_id FROM prize WHERE date == '${time.timeNow}'"
+        query = "SELECT * FROM prize"
         val c = db.rawQuery(query, null)
-        if (c != null) {
-            c.moveToFirst()
-        }
 
         //監聽輸入文字
         ed_number.addTextChangedListener(object : TextWatcher {
@@ -65,17 +64,30 @@ class CheckNumbersActivity : AppCompatActivity() {
                 count: Int
             ) {
                 if (ed_number.length() == 3) {
-                    for (i in 0 until 6){
-                        if (c != null && ed_number.text.toString().toInt() == c.getString(0).toInt()%1000){
+                    var bool = false
+                    c.moveToFirst()
+                    for (i in 0 until c.count){
+                        val user = ed_number.text.toString()
+                        if (c != null && user.toInt() == ((c.getString(0).toInt())%1000)){
+                            bool = true
                             showToast("${ed_number.text}有中獎，快輸入完整發票號碼吧！")
+                            val b = Bundle()
+                            b.putString("date", "${c.getString(1)}")
+                            b.putInt("index",i)
+                            b.putString("user","${ed_number.text}")
                             ed_number.text.clear()
                             val intent = Intent(applicationContext, CheckNumbers2Activity::class.java)
+                            intent.putExtras(b)
                             startActivity(intent)
+                            finish()
+                            break
                         }
                         c.moveToNext()
                     }
-                    showToast("${ed_number.text}未中獎")
-                    ed_number.text.clear()
+                    if (!bool) {
+                        showToast("${ed_number.text}未中獎")
+                        ed_number.text.clear()
+                    }
                 }
             }
             override fun afterTextChanged(s: Editable) {

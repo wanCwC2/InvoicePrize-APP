@@ -2,8 +2,6 @@ package com.example.invoiceprize
 
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
-import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -26,7 +24,7 @@ class WinActivity : AppCompatActivity() {
         val tv_firstPrizeB = findViewById<TextView>(R.id.tv_firstPrizeB)
         val tv_firstPrizeC = findViewById<TextView>(R.id.tv_firstPrizeC)
         val tv_addSixPrize = findViewById<TextView>(R.id.tv_addSixPrize)
-        val btn_month = findViewById<Button>(R.id.btn_month)
+        val btn_month1 = findViewById<Button>(R.id.btn_month1)
         val btn_month2 = findViewById<Button>(R.id.btn_month2)
         var name = arrayOf(
             "specialPrize", "grandPrize", "firstPrizeA",
@@ -37,7 +35,7 @@ class WinActivity : AppCompatActivity() {
         time.run()
 
         //顯示按鈕名稱
-        btn_month.text = "${time.timeBefYear}年${time.timeBefMonth}-${time.timeBefMonth1}月"
+        btn_month1.text = "${time.timeBefYear}年${time.timeBefMonth}-${time.timeBefMonth1}月"
         btn_month2.text = "${time.timeNowYear}年${time.timeNowMonth}-${time.timeNowMonth1}月"
 
         //號碼顯示
@@ -70,6 +68,11 @@ class WinActivity : AppCompatActivity() {
             tv_addSixPrize.text = "${c.getString(0)}"
         }
         c.close()
+
+        //去另外一期
+        btn_month1.setOnClickListener{
+            startActivity(Intent(this,Win2Activity::class.java))
+        }
 
         //回上一頁
         btn_back.setOnClickListener{

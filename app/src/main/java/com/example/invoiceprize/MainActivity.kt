@@ -54,15 +54,24 @@ class MainActivity : AppCompatActivity() {
         time.run()
         lateinit var query: String
         query = "SELECT * FROM prize WHERE date like '${time.timeNow}'"
-        val c = db.rawQuery(query, null)
+        var c = db.rawQuery(query, null)
         try {
             c.moveToFirst()
             val s = c.getString(c.getColumnIndex("prize_id"))
         }catch (e: Exception){
             catchdata("${time.timeNow}")
+        }
+        query = "SELECT * FROM prize WHERE date like '${time.timeBef}'"
+        c = db.rawQuery(query, null)
+        try {
+            c.moveToFirst()
+            val s = c.getString(c.getColumnIndex("prize_id"))
+        }catch (e: Exception){
             catchdata("${time.timeBef}")
         }
+
         c.close()
+//        tv_test.text = time.timeBef
 
         //前往中獎專區
         btn_win.setOnClickListener{
@@ -101,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 line = bis.readLine()
             }
             urlData = data.toString()
-            parser(urlData!!, "11009")
+            parser(urlData!!, "${date}")
         } catch (e: Exception) {
             e.printStackTrace()
         }

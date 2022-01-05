@@ -44,9 +44,9 @@
     <ListView
         android:id="@+id/resultList"
         android:layout_width="355dp"
-        android:layout_height="247dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="92dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_home4" />
 
