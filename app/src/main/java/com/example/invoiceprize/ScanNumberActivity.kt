@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import java.util.*
 
 class ScanNumberActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +18,7 @@ class ScanNumberActivity : AppCompatActivity() {
             startActivity(Intent(this,CheckNumbersActivity::class.java))
         }
         btn_QR.setOnClickListener{
-            startActivity(Intent(this,ScanNumberActivity::class.java))
+            startActivity(Intent(this,qrActivity::class.java))
         }
         btn_return.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
