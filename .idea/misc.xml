@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/InvoicePrize/app/src/main/res/layout/activity_win.xml" value="0.22" />
-        <entry key="..\:/Users/USER/InvoicePrize/app/src/main/res/layout/activity_win2.xml" value="0.175" />
         <entry key="..\:/Users/USER/StudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_main.xml" value="0.1296875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_passbook.xml" value="0.17346014492753623" />
@@ -14,6 +12,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/check_numbers2.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/qrcode.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/scan_number.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/InvoicePrize-APP1/app/src/main/res/layout/activity_main.xml" value="0.2078804347826087" />
         <entry key="..\:/Users/user/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_passbook.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/InvoicePrize-APP/app/src/main/res/layout/activity_reward.xml" value="0.25364583333333335" />
@@ -24,7 +23,7 @@
         <entry key="app/src/main/res/layout/activity_passbook.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_reward.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_win.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_win2.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_win2.xml" value="0.1259259259259259" />
         <entry key="app/src/main/res/layout/check_numbers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/check_numbers2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/qrcode.xml" value="0.1" />
