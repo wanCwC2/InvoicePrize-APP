@@ -78,6 +78,5 @@ class WinActivity : AppCompatActivity() {
         btn_back.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
         }
-
     }
 }
