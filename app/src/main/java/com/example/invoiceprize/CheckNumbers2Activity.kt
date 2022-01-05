@@ -71,6 +71,7 @@ class CheckNumbers2Activity : AppCompatActivity() {
                 count: Int
             ) {
                 if (ed_invoiceNumber.length() == 5) {
+                    c.moveToFirst()
                     c.moveToPosition(index)
                     val user = ed_invoiceNumber.text.toString()+ed_number
                     val bool = compare(user.toInt(), c.getString(0).toInt())
