@@ -18,7 +18,7 @@ class ScanNumberActivity : AppCompatActivity() {
             startActivity(Intent(this,CheckNumbersActivity::class.java))
         }
         btn_QR.setOnClickListener{
-            startActivity(Intent(this,QrcodeActivity::class.java))
+            startActivity(Intent(this,qrActivity::class.java))
         }
         btn_return.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
