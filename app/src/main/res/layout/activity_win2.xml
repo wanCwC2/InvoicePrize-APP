@@ -7,6 +7,151 @@
     tools:context=".Win2Activity">
 
     <TextView
+        android:id="@+id/tv_addSixPrize2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="增開六獎號碼"
+        app:layout_constraintStart_toStartOf="@+id/tv_firstPrizeC2"
+        app:layout_constraintTop_toTopOf="@+id/tv_name18"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_firstPrizeC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="頭獎3號碼"
+        app:layout_constraintStart_toStartOf="@+id/tv_firstPrizeB2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_firstPrizeB2"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_firstPrizeB2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="頭獎2號碼"
+        app:layout_constraintStart_toStartOf="@+id/tv_firstPrizeA2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_firstPrizeA2"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_firstPrizeA2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="頭獎1號碼"
+        app:layout_constraintStart_toStartOf="@+id/tv_grandPrize2"
+        app:layout_constraintTop_toTopOf="@+id/tv_name12"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_grandPrize2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="特獎號碼"
+        app:layout_constraintStart_toStartOf="@+id/tv_specialPrize2"
+        app:layout_constraintTop_toTopOf="@+id/tv_name11"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_specialPrize2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="特別獎號碼"
+        app:layout_constraintStart_toEndOf="@+id/tv_name10"
+        app:layout_constraintTop_toTopOf="@+id/tv_name10"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="增開六獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name16"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name17"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="特別獎"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="特獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name10"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name10"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="頭獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name11"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name11"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="二獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name12"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name12"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="三獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name13"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name13"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="四獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name14"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name14"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="五獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name15"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="六獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name16"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name16"
+        tools:textSize="24sp" />
+
+    <TextView
         android:id="@+id/tv_home3"
         android:layout_width="411dp"
         android:layout_height="85dp"
@@ -31,6 +176,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_home3" />
 
     <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="360dp"
         android:layout_height="86dp"
         android:layout_marginStart="25dp"

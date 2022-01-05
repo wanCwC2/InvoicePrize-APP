@@ -2,8 +2,6 @@ package com.example.invoiceprize
 
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
-import android.icu.text.SimpleDateFormat
-import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -70,6 +68,11 @@ class WinActivity : AppCompatActivity() {
             tv_addSixPrize.text = "${c.getString(0)}"
         }
         c.close()
+
+        //去另外一期
+        btn_month.setOnClickListener{
+            startActivity(Intent(this,Win2Activity::class.java))
+        }
 
         //回上一頁
         btn_back.setOnClickListener{
