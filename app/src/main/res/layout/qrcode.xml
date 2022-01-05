@@ -5,12 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DDDDDD"
-    tools:context=".QrcodeActivity">
+    tools:context=".qrActivity">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/qrcode_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="150dp"
+        app:autoFocusButtonColor="@android:color/white"
+        app:autoFocusButtonVisible="true"
+        app:flashButtonColor="@color/white"
+        app:flashButtonVisible="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maskColor="#C5C3C3" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="410dp"
         android:layout_height="150dp"
+        android:layout_above="@id/qrcode_scanner"
         android:gravity="center_horizontal"
         android:text="\n對獎器"
         android:textColor="#D2000000"
@@ -24,7 +39,7 @@
         android:id="@+id/btn_123"
         android:layout_width="58dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#DDDDDD"
         android:text="123"
@@ -37,7 +52,7 @@
         android:id="@+id/btn_QR"
         android:layout_width="58dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#DDDDDD"
         android:text="QR"
@@ -72,20 +87,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView24"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <SurfaceView
-        android:id="@+id/Number_scan"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
         android:id="@+id/tv_information_2"
-        android:layout_width="414dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="411dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="25dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
