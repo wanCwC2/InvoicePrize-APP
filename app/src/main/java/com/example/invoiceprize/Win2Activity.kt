@@ -18,25 +18,25 @@ class Win2Activity : AppCompatActivity() {
 
         //綁定元件
         val btn_back = findViewById<Button>(R.id.btn_back2)
-        val tv_specialPrize = findViewById<TextView>(R.id.tv_specialPrize2)
-        val tv_grandPrize = findViewById<TextView>(R.id.tv_grandPrize2)
-        val tv_firstPrizeA = findViewById<TextView>(R.id.tv_firstPrizeA2)
-        val tv_firstPrizeB = findViewById<TextView>(R.id.tv_firstPrizeB2)
-        val tv_firstPrizeC = findViewById<TextView>(R.id.tv_firstPrizeC2)
-        val tv_addSixPrize = findViewById<TextView>(R.id.tv_addSixPrize2)
-        val btn_month = findViewById<Button>(R.id.btn_month)
-        val btn_month2 = findViewById<Button>(R.id.btn_month2)
+        val tv_specialPrize2 = findViewById<TextView>(R.id.tv_specialPrize2)
+        val tv_grandPrize2 = findViewById<TextView>(R.id.tv_grandPrize2)
+        val tv_firstPrizeA2 = findViewById<TextView>(R.id.tv_firstPrizeA2)
+        val tv_firstPrizeB2= findViewById<TextView>(R.id.tv_firstPrizeB2)
+        val tv_firstPrizeC2= findViewById<TextView>(R.id.tv_firstPrizeC2)
+        val tv_addSixPrize2= findViewById<TextView>(R.id.tv_addSixPrize2)
+        val btn_month3= findViewById<Button>(R.id.btn_month1)
+        val btn_month4 = findViewById<Button>(R.id.btn_month2)
         var name = arrayOf(
-            "specialPrize", "grandPrize", "firstPrizeA",
-            "firstPrizeB", "firstPrizeC", "addSixPrize"
+            "specialPrize2", "grandPrize2", "firstPrizeA2",
+            "firstPrizeB2", "firstPrizeC2", "addSixPrize2"
         )
 
         val time = Time()
         time.run()
 
         //顯示按鈕名稱
-        btn_month.text = "${time.timeBefYear}年${time.timeBefMonth}-${time.timeBefMonth1}月"
-        btn_month2.text = "${time.timeNowYear}年${time.timeNowMonth}-${time.timeNowMonth1}月"
+        btn_month3.text = "${time.timeBefYear}年${time.timeBefMonth}-${time.timeBefMonth1}月"
+        btn_month4.text = "${time.timeNowYear}年${time.timeNowMonth}-${time.timeNowMonth1}月"
 
         //號碼顯示
         lateinit var query: String
@@ -45,33 +45,33 @@ class Win2Activity : AppCompatActivity() {
         c?.moveToFirst()
         if (c != null) {
             val s = c.getString(c.getColumnIndex("prize_id"))
-            tv_specialPrize.text = s
+            tv_specialPrize2.text = s
         }
         if (c != null) {
             c.moveToNext()
-            tv_grandPrize.text = "${c.getString(0)}"
+            tv_grandPrize2.text = "${c.getString(0)}"
         }
         if (c != null) {
             c.moveToNext()
-            tv_firstPrizeA.text = "${c.getString(0)}"
+            tv_firstPrizeA2.text = "${c.getString(0)}"
         }
         if (c != null) {
             c.moveToNext()
-            tv_firstPrizeB.text = "${c.getString(0)}"
+            tv_firstPrizeB2.text = "${c.getString(0)}"
         }
         if (c != null) {
             c.moveToNext()
-            tv_firstPrizeC.text = "${c.getString(0)}"
+            tv_firstPrizeC2.text = "${c.getString(0)}"
         }
         if (c != null) {
             c.moveToNext()
-            tv_addSixPrize.text = "${c.getString(0)}"
+            tv_addSixPrize2.text = "${c.getString(0)}"
         }
         c.close()
 
         //去另外一期
-        btn_month2.setOnClickListener{
-            startActivity(Intent(this,Win2Activity::class.java))
+        btn_month4.setOnClickListener{
+            startActivity(Intent(this,WinActivity::class.java))
         }
 
         //回上一頁

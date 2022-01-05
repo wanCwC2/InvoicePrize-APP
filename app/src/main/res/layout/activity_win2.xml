@@ -62,16 +62,6 @@
         tools:textSize="24sp" />
 
     <TextView
-        android:id="@+id/tv_name18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="增開六獎"
-        app:layout_constraintStart_toStartOf="@+id/tv_name16"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name17"
-        tools:textSize="24sp" />
-
-    <TextView
         android:id="@+id/tv_name10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,6 +69,16 @@
         android:text="特別獎"
         app:layout_constraintStart_toStartOf="@+id/radioGroup2"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_name18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="增開六獎"
+        app:layout_constraintStart_toStartOf="@+id/tv_name16"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name17"
         tools:textSize="24sp" />
 
     <TextView
@@ -177,8 +177,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup2"
-        android:layout_width="360dp"
-        android:layout_height="86dp"
+        android:layout_width="363dp"
+        android:layout_height="53dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
@@ -186,18 +186,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_home3">
 
         <Button
-            android:id="@+id/btn_month"
+            android:id="@+id/btn_month1"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#D2000000"
-            android:text="110年5-6月" />
+            android:text="110年7-8月" />
 
         <Button
             android:id="@+id/btn_month2"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#AAAAAA"
-            android:text="110年7-8月" />
+            android:text="110年9-10月" />
 
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

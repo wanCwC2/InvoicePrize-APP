@@ -33,8 +33,8 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="360dp"
-        android:layout_height="86dp"
+        android:layout_width="361dp"
+        android:layout_height="51dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
@@ -42,18 +42,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_home2">
 
         <Button
-            android:id="@+id/btn_month"
+            android:id="@+id/btn_month1"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#AAAAAA"
-            android:text="110年5-6月" />
+            android:text="110年7-8月" />
 
         <Button
             android:id="@+id/btn_month2"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#D2000000"
-            android:text="110年7-8月" />
+            android:text="110年9-10月" />
     </RadioGroup>
 
     <TextView
