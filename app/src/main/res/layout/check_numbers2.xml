@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tv_test2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -34,20 +34,30 @@
         tools:textColor="#D2000000" />
 
 
-
     <EditText
         android:id="@+id/ed_invoiceNumber"
         android:layout_width="210dp"
         android:layout_height="59dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
         android:ems="10"
-        android:hint="請輸入發票號碼"
+        android:hint="請輸入發票前5碼"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/tv_init"
+        android:layout_width="95dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="1dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ed_invoiceNumber"
+        app:layout_constraintTop_toTopOf="@+id/ed_invoiceNumber"
+        tools:gravity="center"
+        tools:textSize="48sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -32,8 +32,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:layout_width="360dp"
-        android:layout_height="86dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="361dp"
+        android:layout_height="51dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
@@ -41,36 +42,35 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_home2">
 
         <Button
-            android:id="@+id/btn_month"
+            android:id="@+id/btn_month1"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#AAAAAA"
-            android:text="110年5-6月" />
+            android:text="110年7-8月" />
 
         <Button
             android:id="@+id/btn_month2"
             android:layout_width="180dp"
             android:layout_height="50dp"
             android:backgroundTint="#D2000000"
-            android:text="110年7-8月" />
+            android:text="110年9-10月" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
         android:text="特別獎"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home2"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
         tools:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_name2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="13dp"
         android:text="特獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
@@ -80,7 +80,7 @@
         android:id="@+id/tv_name3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="13dp"
         android:text="頭獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name2"
         app:layout_constraintTop_toBottomOf="@+id/tv_name2"
@@ -90,7 +90,7 @@
         android:id="@+id/tv_name4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="13dp"
         android:text="二獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name3"
         app:layout_constraintTop_toBottomOf="@+id/tv_name3"
@@ -100,7 +100,7 @@
         android:id="@+id/tv_name5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="13dp"
         android:text="三獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name4"
         app:layout_constraintTop_toBottomOf="@+id/tv_name4"
@@ -110,7 +110,7 @@
         android:id="@+id/tv_name6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="13dp"
         android:text="四獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name5"
         app:layout_constraintTop_toBottomOf="@+id/tv_name5"
@@ -120,7 +120,7 @@
         android:id="@+id/tv_name7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="13dp"
         android:text="五獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name6"
         app:layout_constraintTop_toBottomOf="@+id/tv_name6"
@@ -130,7 +130,7 @@
         android:id="@+id/tv_name8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="13dp"
         android:text="六獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name7"
         app:layout_constraintTop_toBottomOf="@+id/tv_name7"
@@ -140,7 +140,7 @@
         android:id="@+id/tv_name9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="13dp"
         android:text="增開六獎"
         app:layout_constraintStart_toStartOf="@+id/tv_name8"
         app:layout_constraintTop_toBottomOf="@+id/tv_name8"
@@ -150,7 +150,6 @@
         android:id="@+id/tv_addSixPrize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="增開六獎號碼"
         app:layout_constraintStart_toStartOf="@+id/tv_grandPrize"
         app:layout_constraintTop_toTopOf="@+id/tv_name9"
@@ -160,37 +159,33 @@
         android:id="@+id/tv_firstPrizeC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="頭獎3號碼"
         app:layout_constraintStart_toStartOf="@+id/tv_grandPrize"
-        app:layout_constraintTop_toTopOf="@+id/tv_name6"
+        app:layout_constraintTop_toBottomOf="@+id/tv_firstPrizeB"
         tools:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_firstPrizeB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="頭獎2號碼"
         app:layout_constraintStart_toStartOf="@+id/tv_grandPrize"
-        app:layout_constraintTop_toTopOf="@+id/tv_name5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_firstPrizeA"
         tools:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_firstPrizeA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="頭獎1號碼"
         app:layout_constraintStart_toStartOf="@+id/tv_grandPrize"
-        app:layout_constraintTop_toTopOf="@+id/tv_name4"
+        app:layout_constraintTop_toTopOf="@+id/tv_name3"
         tools:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_grandPrize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="特獎號碼"
         app:layout_constraintStart_toStartOf="@+id/tv_specialPrize"
         app:layout_constraintTop_toTopOf="@+id/tv_name2"
@@ -201,7 +196,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
         android:text="特別獎號碼"
         app:layout_constraintStart_toEndOf="@+id/tv_name"
         app:layout_constraintTop_toTopOf="@+id/tv_name"
